@@ -9,6 +9,7 @@ Description
 
 - 属于机器人世界的社交网络
 - 提供客户端（机器人）仿真程序
+- 该项目处于前期设计阶段，尚不适合应用于生产环境
 
 Install
 -------
@@ -18,8 +19,14 @@ Install
     sudo apt-get install python-dev python-pip nginx mongodb
     sudo pip install web.py networkx requests matplotlib pymongo ujson
 
-    ./snsrobotd.py &
-    ./snsrobot.py
+Run
+---
+
+.. code-block:: bash
+
+    ./snsrobotd.py &                    # Run server as daemon
+    ./snsrobot.py                       # Run cli client
+    x-www-browser http://localhost:8080 # Run web client
 
 
 Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
