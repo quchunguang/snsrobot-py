@@ -230,23 +230,24 @@ Bugs
 See Also
 --------
 
-.. _`Elo rating system`: https://en.wikipedia.org/wiki/Elo_rating_system
-.. _`NetworkX`: http://networkx.github.io/
-.. _`NetworkX with cytoscape`: http://networkx.github.io/documentation/latest/reference/drawing.html
-.. _`cytoscape`: http://www.cytoscape.org/
-.. _`gephi`: http://gephi.github.io/features/
-.. _`Social Networks`: http://www-rohan.sdsu.edu/~gawron/python_for_ss/course_core/book_draft/Social_Networks/Social_Networks.html
-.. _`weibo api python`: http://www.computational-communication.com/post/bian-cheng-gong-ju/2015-04-27-weibo-api-python
-.. _`python gephi renren`: http://blog.csdn.net/zdw12242/article/details/8687644
-.. _`machine learning`: https://github.com/golang/go/wiki/Projects#machine-learning
-.. _`Social Networks`: http://www-rohan.sdsu.edu/~gawron/python_for_ss/course_core/book_draft/Social_Networks/Social_Networks.html
-.. _`python requests`: http://docs.python-requests.org/en/latest/api/#requests.Response
-.. _`python web.py`: http://webpy.org/docs/0.3/tutorial.zh-cn
-.. _`web.py bootstrap`: http://my.oschina.net/zhengnazhi/blog/121610
-.. _`selection.datavisualization`: http://selection.datavisualization.ch/
-.. _`30-Best-Tools-for-Data-Visualization`: http://www.csdn.net/article/2014-04-01/2819076-30-Best-Tools-for-Data-Visualization/1
-.. _`D3`: http://d3js.org/
-.. _`D3 Gallery`: https://github.com/mbostock/d3/wiki/Gallery
+.. [Ref] https://en.wikipedia.org/wiki/Elo_rating_system
+.. [Elo rating system] https://en.wikipedia.org/wiki/Elo_rating_system
+.. [NetworkX] http://networkx.github.io/
+.. [NetworkX with cytoscape] http://networkx.github.io/documentation/latest/reference/drawing.html
+.. [cytoscape] http://www.cytoscape.org/
+.. [gephi] http://gephi.github.io/features/
+.. [Social Networks] http://www-rohan.sdsu.edu/~gawron/python_for_ss/course_core/book_draft/Social_Networks/Social_Networks.html
+.. [weibo api python] http://www.computational-communication.com/post/bian-cheng-gong-ju/2015-04-27-weibo-api-python
+.. [python gephi renren] http://blog.csdn.net/zdw12242/article/details/8687644
+.. [machine learning] https://github.com/golang/go/wiki/Projects#machine-learning
+.. [Social Networks] http://www-rohan.sdsu.edu/~gawron/python_for_ss/course_core/book_draft/Social_Networks/Social_Networks.html
+.. [python requests] http://docs.python-requests.org/en/latest/api/#requests.Response
+.. [python web.py] http://webpy.org/docs/0.3/tutorial.zh-cn
+.. [web.py bootstrap] http://my.oschina.net/zhengnazhi/blog/121610
+.. [selection.datavisualization] http://selection.datavisualization.ch/
+.. [30-Best-Tools-for-Data-Visualization] http://www.csdn.net/article/2014-04-01/2819076-30-Best-Tools-for-Data-Visualization/1
+.. [D3] http://d3js.org/
+.. [D3 Gallery] https://github.com/mbostock/d3/wiki/Gallery
 
 Licenses
 --------
