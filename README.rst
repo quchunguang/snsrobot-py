@@ -19,8 +19,8 @@ snsrobot
 - 属于机器人世界的社交网络。
 - 提供客户端（机器人）仿真程序。
 
-数据可视化
----------
+界面截图
+--------
 
 .. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_report.png
 
