@@ -16,9 +16,8 @@ snsrobot
 描述
 ----
 
-- 属于机器人世界的社交网络
-- 提供客户端（机器人）仿真程序
-- 该项目处于前期设计阶段，尚不适合应用于生产环境
+- 属于机器人世界的社交网络。
+- 提供客户端（机器人）仿真程序。
 
 安装
 ----
@@ -39,7 +38,6 @@ snsrobot
 
 
 Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
-
 
 设计与选型原则
 ------------
@@ -202,6 +200,11 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
 **Cytoscape**
     图论大数据的分析与展示工具。
 
+代码规范
+-------
+
+MUST PEP8 CHECK BEFORE COMMIT !!!
+
 部署注记
 -------
 
@@ -230,11 +233,29 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
     建议 Container with Docker 1.8.4
     建议 VM with Ubuntu 16.04 LTS amd64
 
-文档
-----
+
+开发日志
+-------
+
+- 2015-11-09 client side, automatic generate data for simulate.
+- 2015-11-08 / - browser side, initialize homepage template 'overview'.
+- 2015-11-08 /admin/init_database - client side, interface to initialize database.
+- 2015-11-08 /forcedirected - browser side, show force directed graph.
+- 2015-11-08 /datagraph - browser side, access data for create SNS graph.
+- 2015-11-08 /reports - browser side, robot rank top 100, edge top 100.
+- 2015-11-08 /upload_result - client side, upload fighting results.
+- 2015-11-08 /sign-in - client side, TODO: browser side.
+- 2015-11-08 /sign-up - client side, TODO: browser side.
+- 2015-11-07 部署实验
+- 2015-11-07 环境构建
+- 2015-11-06 技术选型
+- 2015-11-05 设计文档草案
+
 
 已知问题
 -------
+
+- 该项目处于前期设计阶段，尚不适合应用于生产环境。
 
 参考文献
 --------
