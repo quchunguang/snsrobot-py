@@ -22,9 +22,11 @@ snsrobot
 数据可视化
 ---------
 
-.. image:: https://github.com/quchunguang/snsrobot/raw/master/output/snapshot_forcedirected.png
+.. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_report.png
 
-.. image:: https://github.com/quchunguang/snsrobot/raw/master/output/snapshot_Cytoscape.png
+.. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_forcedirected.png
+
+.. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_Cytoscape.png
 
 安装
 ----
@@ -280,6 +282,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 #. `python requests <http://docs.python-requests.org/en/latest/api/#requests.Response>`_
 #. `python webpy <http://webpy.org/docs/0.3/tutorial.zh-cn>`_
 #. `webpy bootstrap <http://my.oschina.net/zhengnazhi/blog/121610>`_
+#. `Reference of bootstrap <http://v3.bootcss.com/getting-started/>`_
 #. `data visualization <http://selection.datavisualization.ch/>`_
 #. `30 Best Tools for Data Visualization <http://www.csdn.net/article/2014-04-01/2819076-30-Best-Tools-for-Data-Visualization/1>`_
 #. `D3 <http://d3js.org/>`_
