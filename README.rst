@@ -287,6 +287,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 #. `30 Best Tools for Data Visualization <http://www.csdn.net/article/2014-04-01/2819076-30-Best-Tools-for-Data-Visualization/1>`_
 #. `D3 <http://d3js.org/>`_
 #. `D3 Gallery <https://github.com/mbostock/d3/wiki/Gallery>`_
+#. `CDN speed up <http://www.bootcdn.cn/>`_
 #. `FIGlet Server <http://www.asciiset.com/figletserver.html>`_
 
 Licenses

@@ -99,7 +99,7 @@ def draw_robot_graph(token):
 
     # export data with GraphML format
     # for example, Cytoscape can read the GraphML format
-    nx.write_graphml(graph, "output/test.graphml")
+    nx.write_graphml(graph, "test.graphml")
 
     # draw graph
     nx.draw(graph)
