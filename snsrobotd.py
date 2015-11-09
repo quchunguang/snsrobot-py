@@ -1,10 +1,10 @@
 #!/usr/bin/env python2
 # -*- encoding=utf8 -*-
-'''
+"""
 snsrebotd.py cli server daemon
 
 This should be run on server as a SNS service daemon.
-'''
+"""
 
 import os
 import web
@@ -32,10 +32,10 @@ MONGO = pymongo.MongoClient('127.0.0.1', 27017)
 
 
 def getNextSequence(name):
-    '''
+    """
     Generate next seq id
     https://docs.mongodb.org/manual/tutorial/create-an-auto-incrementing-field/
-    '''
+    """
     counters = MONGO.snsrobot.counters
     ret = counters.find_one_and_update(
         {"_id": name},
@@ -47,14 +47,14 @@ def getNextSequence(name):
 
 class Index:
 
-    '''
+    """
     Homepage
-    '''
+    """
 
     def GET(self):
-        '''
+        """
         Generate HTML reports using template
-        '''
+        """
 
         # count users
         users = MONGO.snsrobot.users
@@ -70,14 +70,14 @@ class Index:
 
 class SignUp:
 
-    '''
+    """
     Sign-up a robot
-    '''
+    """
 
     def POST(self):
-        '''
+        """
         get post json and echo.
-        '''
+        """
         i = web.input()
         data = web.data()
         user = json.loads(data)
@@ -88,7 +88,7 @@ class SignUp:
         users = MONGO.snsrobot.users
         obj = users.find_one({"username": user["username"]})
 
-        if obj == None:
+        if obj is None:
             users.insert_one(user)
             print "[INFO] users: add user", user
             return '{"code": 0}'
@@ -99,14 +99,14 @@ class SignUp:
 
 class SignIn:
 
-    '''
+    """
     Sign-in a robot
-    '''
+    """
 
     def POST(self):
-        '''
+        """
         get post json and echo.
-        '''
+        """
         i = web.input()
         data = web.data()
         user = json.loads(data)
@@ -116,7 +116,7 @@ class SignIn:
         obj = users.find_one(
             {"username": user["username"], "password": user["password"]})
 
-        if obj == None:
+        if obj is None:
             print "[WARN] sign-in error: no such user or bad password", user
             return '{"code": 1, "access_token": ""}'
         else:
@@ -135,21 +135,21 @@ class SignIn:
 
 class UploadResult:
 
-    '''
+    """
     Upload Result
-    '''
+    """
 
     def POST(self):
-        '''
+        """
         get post json and echo.
-        '''
+        """
         i = web.input()
         res = json.loads(web.data())
 
         # check access right
         tokens = MONGO.snsrobot.tokens
         obj = tokens.find_one({"access_token": res["access_token"]})
-        if obj == None:
+        if obj is None:
             print "[ERROR] upload result error, access denied."
             return '{"code": 1}'
 
@@ -162,7 +162,7 @@ class UploadResult:
         user1 = users.find_one({"username": res["username_source"]})
         user2 = users.find_one({"username": res["username_target"]})
 
-        if user1 == None or user2 == None:
+        if user1 is None or user2 is None:
             print "[ERROR] upload result error, user not exist"
             return '{"code": 2}'
 
@@ -186,9 +186,9 @@ class UploadResult:
 
 
 def update_edge(user1, user2):
-    '''
+    """
     Add edge between users, or adjust the weight.
-    '''
+    """
     # Smaller _id is source, so that edge {source, target} is unique.
     if user1["_id"] > user2["_id"]:
         source, target = user2, user1
@@ -207,14 +207,14 @@ def update_edge(user1, user2):
 
 class Reports:
 
-    '''
+    """
     Human UI Reports
-    '''
+    """
 
     def GET(self):
-        '''
+        """
         Generate HTML reports using template
-        '''
+        """
 
         # Robot rank
         users = MONGO.snsrobot.users
@@ -231,14 +231,14 @@ class Reports:
 
 class ForceDirected:
 
-    '''
+    """
     Human UI Reports
-    '''
+    """
 
     def GET(self):
-        '''
+        """
         Generate HTML reports using template
-        '''
+        """
 
         users = MONGO.snsrobot.users
         edges = MONGO.snsrobot.edges
@@ -265,14 +265,14 @@ class ForceDirected:
 
 class DataGraph:
 
-    '''
+    """
     Return data to client for create graph view
-    '''
+    """
 
     def POST(self):
-        '''
+        """
         get post json and echo.
-        '''
+        """
         i = web.input()
         data = web.data()
         res = json.loads(data)
@@ -280,7 +280,7 @@ class DataGraph:
         # check access right
         tokens = MONGO.snsrobot.tokens
         obj = tokens.find_one({"access_token": res["access_token"]})
-        if obj == None:
+        if obj is None:
             return '{"code": 1}'
 
         users = MONGO.snsrobot.users
@@ -298,17 +298,17 @@ class DataGraph:
 
 class InitDatabase:
 
-    '''
+    """
     Initialize the MongoDB database
 
     WARN: ALL DATA WILL BE LOST!!!
     This interface will be removed in release.
-    '''
+    """
 
     def POST(self):
-        '''
+        """
         get post json and echo.
-        '''
+        """
         i = web.input()
         req = json.loads(web.data())
         if req["secret"] == SECRET:
@@ -333,9 +333,9 @@ def init_database():
 
 
 def main():
-    '''
+    """
     Start Webservice
-    '''
+    """
     app = web.application(URLS, globals())
     app.run()
 

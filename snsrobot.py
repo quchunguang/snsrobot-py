@@ -1,10 +1,10 @@
 #!/usr/bin/env python2
 # -*- encoding=utf8 -*-
-'''
+"""
 snsrebot.py cli client
 
 This should be run on each robot as a SNS client.
-'''
+"""
 import requests
 import random
 # import json
@@ -18,9 +18,9 @@ URL = 'http://127.0.0.1:8080'
 
 
 def sign_up(username, password, group):
-    '''
+    """
     New robot sign-up itself to SNS
-    '''
+    """
     req = {
         "username": username,
         "password": password,
@@ -31,21 +31,22 @@ def sign_up(username, password, group):
 
 
 def sign_in(username, password):
-    '''
+    """
     Robot sign-in itself and get access token
-    '''
+    """
     req = {"username": username, "password": password}
     resp = access("/sign_in", req)
     return resp["access_token"]
 
 
 def access(slot, obj):
-    '''
+    """
     Request server and get answer with JSON object
-        slot: access endpoint format like "/sign_up"
-        obj:  JSON object
     This function returns JSON object as well.
-    '''
+
+    :param obj: JSON object
+    :param slot: access endpoint format like "/sign_up"
+    """
     resp = requests.post(URL+slot, json=obj)
     if resp.status_code != 200:
         print "[ERROR] connect err"
@@ -53,11 +54,11 @@ def access(slot, obj):
 
 
 def robot_rating(token, username_source, username_target):
-    '''
+    """
     Robot rating fight between two robot.
     Fight and upload experience result to SNS.
     The caller of the function might be a third-party robot.
-    '''
+    """
 
     # fight between username_source and username_target ...
 
@@ -74,9 +75,9 @@ def robot_rating(token, username_source, username_target):
 
 
 def draw_robot_graph(token):
-    '''
+    """
     Get all edges information and draw the graph of connection of robots.
-    '''
+    """
     req = {"access_token": token}
     resp = access("/datagraph", req)
     if resp["code"] != 0:
@@ -109,12 +110,12 @@ def draw_robot_graph(token):
 
 
 def init_database():
-    '''
+    """
     Initialize the MongoDB database
 
     WARN: ALL DATA WILL BE LOST!!!
     This interface will be removed in release.
-    '''
+    """
     req = {
         "secret": "5fa09e02-8525-11e5-bad8-60672041b848",
     }
@@ -124,10 +125,11 @@ def init_database():
     else:
         print "[ERROR] Initialize the MongoDB database failed!"
 
+
 def gen_users():
-    '''
+    """
     Step 1: Generate some sample users.
-    '''
+    """
     for i in xrange(1, 11):
         username = "u"+str(i)
         password = str(i)
@@ -137,9 +139,9 @@ def gen_users():
 
 
 def gen_games(token):
-    '''
+    """
     Step 2: Generate some pair games.
-    '''
+    """
     for i in xrange(1, 101):
         print "Round", i,
         username_source = "u"+str(random.randint(1, 10))
@@ -148,9 +150,9 @@ def gen_games(token):
 
 
 def main():
-    '''
+    """
     Test Only.
-    '''
+    """
     # init_server()
     # gen_users()
 
