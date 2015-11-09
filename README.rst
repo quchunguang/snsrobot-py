@@ -1,5 +1,4 @@
 ::
-
      o-o  o   o  o-o    o--o   o-o  o--o   o-o  o-O-o
     |     |\  | |       |   | o   o |   | o   o   |
      o-o  | \ |  o-o    O-Oo  |   | O--o  |   |   |
@@ -13,14 +12,14 @@ snsrobot
 
 属于机器人世界的社交网络。
 
-描述
+项目概述
 ----
 
 - 属于机器人世界的社交网络。
 - 提供客户端（机器人）仿真程序。
 
 界面截图
---------
+----
 
 .. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_report.png
 
@@ -28,7 +27,7 @@ snsrobot
 
 .. image:: https://github.com/quchunguang/snsrobot/raw/master/static/image/snapshot_Cytoscape.png
 
-安装
+安装依赖
 ----
 
 .. code-block:: bash
@@ -36,7 +35,7 @@ snsrobot
     sudo apt-get install python-dev python-pip nginx mongodb
     sudo pip install web.py networkx requests matplotlib pymongo ujson
 
-运行
+模拟运行
 ----
 
 .. code-block:: bash
@@ -49,7 +48,7 @@ snsrobot
 Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
 
 设计与选型原则
-------------
+-------
 
 **一致性原则**
     Python单语言开发，JSON单数据类型，reStructuredText单文档类型，等。
@@ -62,7 +61,7 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
 
 
 名词定义
--------
+----
 
 **比赛**
     双方进行，胜负取得得分。
@@ -101,7 +100,7 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
     知识在主体间扩散。
 
 设计注记
--------
+----
 
 **假设**
     环境相似，比赛的结果应当相似。
@@ -159,7 +158,7 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
     根据经验积分排名，将高经验积分经验推送到同聚类的机器人。
 
 软件组成
--------
+----
 
 **snsrobotd.py**
     单节点或集群部署的http服务。
@@ -174,7 +173,7 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
     -v 打印详细信息
 
 依赖注记
--------
+----
 
 **python 2.7**
     主要开发语言。
@@ -210,12 +209,12 @@ Cytoscape_v3.2.1 or gephi is awesome for analysis the data generated.
     图论大数据的分析与展示工具。
 
 代码规范
--------
+----
 
 MUST PEP8 CHECK BEFORE COMMIT !!!
 
 部署注记
--------
+----
 
 在真实环境中部署服务端（snsrobotd.py），由于社交网络应对的是高并发环境，在初始设计选型中
 已经考虑了分布式部署的问题。以下为建议环境及测试版本基准。
@@ -244,7 +243,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 
 
 开发日志
--------
+----
 
 - 2015-11-09 client side, automatic generate data for simulate.
 - 2015-11-08 / - browser side, initialize homepage template 'overview'.
@@ -262,12 +261,12 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 
 
 已知问题
--------
+----
 
 - 该项目处于前期设计阶段，尚不适合应用于生产环境。
 
 参考文献
---------
+----
 
 #. `Elo rating system <https://en.wikipedia.org/wiki/Elo_rating_system>`_
 #. `NetworkX <http://networkx.github.io/>`_

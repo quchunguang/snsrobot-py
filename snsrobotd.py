@@ -198,8 +198,7 @@ def update_edge(user1, user2):
     edges = MONGO.snsrobot.edges
     cond = {"source": source["_id"], "target": target["_id"]}
     edge = {
-        "$set": {"source": source["_id"]},
-        "$set": {"target": target["_id"]},
+        "$set": {"source": source["_id"], "target": target["_id"]},
         "$inc": {"weight": 1}
     }
     edges.update_one(cond, edge, upsert=True)
