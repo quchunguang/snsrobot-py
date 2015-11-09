@@ -22,9 +22,9 @@ snsrobot
 数据可视化
 ---------
 
-.. image:: https://github.com/quchunguang/snstobot/raw/master/output/snapshot_forcedirected.png
+.. image:: https://github.com/quchunguang/snsrobot/raw/master/output/snapshot_forcedirected.png
 
-.. image:: https://github.com/quchunguang/snstobot/raw/master/output/snapshot_Cytoscape.png
+.. image:: https://github.com/quchunguang/snsrobot/raw/master/output/snapshot_Cytoscape.png
 
 安装
 ----
