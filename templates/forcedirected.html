@@ -1,20 +1,82 @@
 $def with (jsonfile)
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/static/image/favicon.ico">
 
+  <title>Reports</title>
+
+  <!-- 样式引用 -->
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="/static/css/dashboard.css" rel="stylesheet">
+  <style>
 .node {
   stroke: #fff;
   stroke-width: 1.5px;
 }
-
 .link {
   stroke: #999;
   stroke-opacity: .6;
 }
+  </style>
+</head>
 
-</style>
 <body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">SNS ROBOT</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 左侧导航 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li><a href="/overview">Overview</a></li>
+          <li><a href="/reports">Data Reports</a></li>
+          <li class="active"><a href="#">Force Directed Graph<span class="sr-only">(current)</span></a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="">Analytics</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="">Import</a></li>
+          <li><a href="">Export</a></li>
+        </ul>
+      </div>
+
+
+
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
@@ -69,3 +131,36 @@ d3.json("$jsonfile", function(error, graph) {
 });
 
 </script>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 版权信息 -->
+  <hr>
+  <footer>
+    <p>&copy; Company 2015</p>
+  </footer>
+
+  <!-- 库引用 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+
