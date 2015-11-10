@@ -272,7 +272,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 #. `Elo rating system <https://en.wikipedia.org/wiki/Elo_rating_system>`_
 #. `NetworkX <http://networkx.github.io/>`_
 #. `NetworkX with cytoscape <http://networkx.github.io/documentation/latest/reference/drawing.html>`_
-#. `Tensorflow https://github.com/tensorflow/tensorflow`_
+#. `Tensorflow <://github.com/tensorflow/tensorflow>`_
 #. `cytoscape <http://www.cytoscape.org/>`_
 #. `gephi <http://gephi.github.io/features/>`_
 #. `Social Networks <http://www-rohan.sdsu.edu/~gawron/python_for_ss/course_core/book_draft/Social_Networks/Social_Networks.html>`_
