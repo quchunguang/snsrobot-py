@@ -1,4 +1,4 @@
-$def with (robot_rank, edge_rank)
+$def with (username, robot_rank, edge_rank)
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -34,14 +34,13 @@ $def with (robot_rank, edge_rank)
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Dashboard</a></li>
+          <li class="active"><a href="#">$username</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="/signout">Sign Out</a></li>
+          <li><a href="/signup">Sign Up</a></li>
           <li><a href="#">Settings</a></li>
-          <li><a href="#">Profile</a></li>
           <li><a href="#">Help</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>

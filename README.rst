@@ -246,6 +246,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 开发日志
 ----
 
+- 2015-11-13 browser side, /signin, /signout, /signup. changed api interface.
 - 2015-11-09 client side, automatic generate data for simulate.
 - 2015-11-08 / - browser side, initialize homepage template 'overview'.
 - 2015-11-08 /admin/init_database - client side, interface to initialize database.

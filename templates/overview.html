@@ -1,4 +1,4 @@
-$def with (user_count, edge_count)
+$def with (username, status_info)
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -34,14 +34,13 @@ $def with (user_count, edge_count)
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Dashboard</a></li>
+          <li class="active"><a href="#">$username</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="/signout">Sign Out</a></li>
+          <li><a href="/signup">Sign Up</a></li>
           <li><a href="#">Settings</a></li>
-          <li><a href="#">Profile</a></li>
           <li><a href="#">Help</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>
@@ -110,8 +109,9 @@ o--o  o   o o--o    o   o  o-o  o--o   o-o    o
         <img src="/static/image/snapshot_Cytoscape.png"><br>
 
         <h2 class="sub-header">Server Status</h2>
-        <p>Current User Number: <em>$user_count</em></p>
-        <p>Current Edge Number: <em>$edge_count</em></p>
+        <p>Current SignIn User: <em>$username</em></p>
+        <p>Current User Number: <em>$status_info["user_count"]</em></p>
+        <p>Current Edge Number: <em>$status_info["edge_count"]</em></p>
 
 
 

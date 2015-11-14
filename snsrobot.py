@@ -5,16 +5,25 @@ snsrebot.py cli client
 
 This should be run on each robot as a SNS client.
 """
-import requests
-import random
-# import json
-# from bson import json_util
-
-import networkx as nx
-import matplotlib.pyplot as plt
 from networkx.algorithms import approximation as approx
+import matplotlib.pyplot as plt
+import networkx as nx
+import random
+import requests
 
 URL = 'http://127.0.0.1:8080'
+def access(slot, obj):
+    """
+    Request server and get answer with JSON object
+    This function returns JSON object as well.
+
+    :param obj: JSON object
+    :param slot: access endpoint format like "/api/sign_up"
+    """
+    resp = requests.post(URL + slot, json=obj)
+    if resp.status_code != 200:
+        print "[ERROR] connect err"
+    return resp.json()
 
 
 def sign_up(username, password, group):
@@ -26,7 +35,7 @@ def sign_up(username, password, group):
         "password": password,
         "group": group
     }
-    resp = access("/sign_up", req)
+    resp = access("/api/signup", req)
     return resp["code"] == 0
 
 
@@ -35,22 +44,8 @@ def sign_in(username, password):
     Robot sign-in itself and get access token
     """
     req = {"username": username, "password": password}
-    resp = access("/sign_in", req)
+    resp = access("/api/signin", req)
     return resp["access_token"]
-
-
-def access(slot, obj):
-    """
-    Request server and get answer with JSON object
-    This function returns JSON object as well.
-
-    :param obj: JSON object
-    :param slot: access endpoint format like "/sign_up"
-    """
-    resp = requests.post(URL+slot, json=obj)
-    if resp.status_code != 200:
-        print "[ERROR] connect err"
-    return resp.json()
 
 
 def robot_rating(token, username_source, username_target):
@@ -70,7 +65,7 @@ def robot_rating(token, username_source, username_target):
         "result_source": random.random(),
         "result_target": random.random(),
     }
-    resp = access("/upload_result", req)
+    resp = access("/api/upload_result", req)
     print resp
 
 
@@ -79,10 +74,9 @@ def draw_robot_graph(token):
     Get all edges information and draw the graph of connection of robots.
     """
     req = {"access_token": token}
-    resp = access("/datagraph", req)
+    resp = access("/api/datagraph", req)
     if resp["code"] != 0:
         print "[ERROR] get robot edges info error"
-
 
     # create graph
     graph = nx.Graph()
@@ -99,7 +93,7 @@ def draw_robot_graph(token):
 
     # export data with GraphML format
     # for example, Cytoscape can read the GraphML format
-    nx.write_graphml(graph, "test.graphml")
+    nx.write_graphml(graph, "static/tmp/test.graphml")
 
     # draw graph
     nx.draw(graph)
@@ -119,7 +113,7 @@ def init_database():
     req = {
         "secret": "5fa09e02-8525-11e5-bad8-60672041b848",
     }
-    resp = access("/admin/init_database", req)
+    resp = access("/api/admin_init", req)
     if resp["code"] == 0:
         print "[INFO] Initialize the MongoDB database OK."
     else:
@@ -130,8 +124,8 @@ def gen_users():
     """
     Step 1: Generate some sample users.
     """
-    for i in xrange(1, 11):
-        username = "u"+str(i)
+    for i in xrange(12, 21):
+        username = "u" + str(i)
         password = str(i)
         group = i % 4
         sign_up(username, password, group)
@@ -142,10 +136,10 @@ def gen_games(token):
     """
     Step 2: Generate some pair games.
     """
-    for i in xrange(1, 101):
+    for i in xrange(1, 10):
         print "Round", i,
-        username_source = "u"+str(random.randint(1, 10))
-        username_target = "u"+str(random.randint(1, 10))
+        username_source = "u" + str(random.randint(1, 10))
+        username_target = "u" + str(random.randint(12, 20))
         robot_rating(token, username_source, username_target)
 
 
@@ -164,6 +158,7 @@ def main():
 
     # Draw the graph with matplotlab
     draw_robot_graph(token)
+
 
 if __name__ == '__main__':
     main()
