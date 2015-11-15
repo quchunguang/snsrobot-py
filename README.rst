@@ -34,7 +34,12 @@ snsrobot
 .. code-block:: bash
 
     sudo apt-get install python-dev python-pip nginx mongodb
-    sudo pip install web.py networkx requests matplotlib pymongo ujson
+    sudo pip install web.py
+    sudo pip install networkx
+    sudo pip install requests
+    sudo pip install matplotlib
+    sudo pip install pymongo
+    sudo pip install ujson
 
 模拟运行
 ----
