@@ -79,7 +79,7 @@ def draw_robot_graph(token):
         print "[ERROR] get robot edges info error"
 
     # create graph
-    graph = nx.Graph()
+    G = nx.Graph()
 
     # add nodes
     # nodes = resp["robot_nodes"]
@@ -89,18 +89,18 @@ def draw_robot_graph(token):
     # add edges
     edges = resp["robot_edges"]
     weighted_edges = [(e["source"], e["target"], e["weight"]) for e in edges]
-    graph.add_weighted_edges_from(weighted_edges)
+    G.add_weighted_edges_from(weighted_edges)
 
     # export data with GraphML format
     # for example, Cytoscape can read the GraphML format
-    nx.write_graphml(graph, "static/tmp/test.graphml")
+    nx.write_graphml(G, "static/tmp/test.graphml")
 
     # draw graph
-    nx.draw(graph)
-    plt.show()
+    nx.draw(G)
+    plt.show()  # need optional dependence matplotlab
 
     # demos the usage of algorithms in networkx
-    print approx.node_connectivity(graph)
+    print approx.node_connectivity(G)
 
 
 def init_database():

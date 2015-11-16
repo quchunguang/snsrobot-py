@@ -36,7 +36,10 @@ snsrobot
     sudo apt-get install python-dev python-pip nginx mongodb # dependence
     sudo pip install web.py networkx requests pymongo ujson  # dependence
     sudo pip install matplotlib                              # optional
-
+    mongo          # run client of mongodb and insert one initialize data
+    > use snsrobot
+    > db.counters.insert({"_id": "userid", "seq": 0})
+    > exit
 
 模拟运行
 ----

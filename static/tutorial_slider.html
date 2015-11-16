@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- usage https://github.com/gnab/remark/wiki/Markdown -->
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# SNS ROBOT
+
+---
+
+## Description
+
+1. The Social Network Service for Robots
+1. Provide full framework including *HTTP Service*, *API Interface* and *WWW Interface*.
+
+---
+
+## Dependence
+
+```bash
+sudo apt-get install python-dev python-pip nginx mongodb # dependence
+sudo pip install web.py networkx requests pymongo ujson  # dependence
+sudo pip install matplotlib                              # optional
+mongo
+> use snsrobot
+> db.counters.insert({"_id": "userid", "seq": 0})
+> exit
+```
+
+---
+
+## Run
+
+```bash
+./snsrobotd.py &                    # Run server as daemon
+./snsrobot.py                       # Run cli client
+x-www-browser http://localhost:8080 # Run web client
+```
+
+---
+
+## About Elo rating system
+
+The **Elo rating system** is a method for calculating the relative skill levels of players in competitor-versus-competitor games such as chess. It is named after its creator *Arpad Elo*, a Hungarian-born American physics professor.
+
+If Player `\(A\)` has a rating of `\(R_A\)` and Player `\(B\)` a rating of `\(R_B\)`, the exact formula (using the logistic curve) for the expected score of Player `\(A\)` is,
+
+$$E_A=\frac{1}{10^{\frac{1}{400} \left(R_B-R_A\right)}+1}$$
+
+Similarly the expected score for Player `\(B\)` is,
+
+$$E_B=\frac{1}{10^{\frac{1}{400} \left(R_A-R_B\right)}+1}$$
+
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>

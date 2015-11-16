@@ -57,6 +57,5 @@ docs/_build/
 target/
 
 # Temporary generated data folder
-static/tmp/
 .idea/
 sessions/
