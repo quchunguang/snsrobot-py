@@ -1,10 +1,30 @@
 #!/usr/bin/env python2
 # -*- encoding=utf8 -*-
-"""
-snsrebot.py cli client
-
+"""snsrebot - CLI interface simulates the robot client.
 This should be run on each robot as a SNS client.
+
+Usage:
+  snsrebot.py (-h | --help)
+  snsrebot.py --version
+  snsrebot.py -u <username> -p <password> info
+  snsrebot.py -u <username> -p <password> friends
+  snsrebot.py -u <username> -p <password> draw-graph
+  snsrebot.py -s <secret> admin-init
+  snsrebot.py server-info [--users-top100 | --games-top100]
+  snsrebot.py gen-users <prefix> <count> <group> <password>
+  snsrebot.py -u <username> -p <password> gen-games <prefix1> <count1> <prefix2> <count2> <gamecount>
+
+Options:
+  -h --help        Show this screen.
+  --version        Show version.
+  -u <username>    Sign In username.
+  -p <password>    Sign In password.
+  -s <secret>      Super secret token for administrator
+
+Example:
+    snsrebot.py -s '5fa09e02-8525-11e5-bad8-60672041b848' admin-info
 """
+from docopt import docopt
 from networkx.algorithms import approximation as approx
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -12,6 +32,9 @@ import random
 import requests
 
 URL = 'http://127.0.0.1:8080'
+args = docopt(__doc__, version='snsrobot.py 0.1')
+# print args
+
 def access(slot, obj):
     """
     Request server and get answer with JSON object
@@ -69,10 +92,12 @@ def robot_rating(token, username_source, username_target):
     print resp
 
 
-def draw_robot_graph(token):
+def draw_graph():
     """
     Get all edges information and draw the graph of connection of robots.
     """
+    token = sign_in(args["-u"], args["-p"])
+
     req = {"access_token": token}
     resp = access("/api/datagraph", req)
     if resp["code"] != 0:
@@ -97,13 +122,16 @@ def draw_robot_graph(token):
 
     # draw graph
     nx.draw(G)
+    # nx.draw_random(G)
+    # nx.draw_circular(G)
+    # nx.draw_spectral(G)
     plt.show()  # need optional dependence matplotlab
 
     # demos the usage of algorithms in networkx
     print approx.node_connectivity(G)
 
 
-def init_database():
+def admin_init():
     """
     Initialize the MongoDB database
 
@@ -111,7 +139,7 @@ def init_database():
     This interface will be removed in release.
     """
     req = {
-        "secret": "5fa09e02-8525-11e5-bad8-60672041b848",
+        "secret": args["-s"],
     }
     resp = access("/api/admin_init", req)
     if resp["code"] == 0:
@@ -124,40 +152,58 @@ def gen_users():
     """
     Step 1: Generate some sample users.
     """
-    for i in xrange(12, 21):
-        username = "u" + str(i)
-        password = str(i)
-        group = i % 4
+    for i in xrange(1, int(args["<count>"])+1):
+        username = args["<prefix>"] + str(i)
+        password = args["<password>"]
+        group = args["<group>"]
         sign_up(username, password, group)
-        sign_in(username, password)
 
 
-def gen_games(token):
+def gen_games():
     """
     Step 2: Generate some pair games.
     """
-    for i in xrange(1, 10):
+    token = sign_in(args["-u"], args["-p"])
+    for i in xrange(1, int(args["<gamecount>"])+1):
         print "Round", i,
-        username_source = "u" + str(random.randint(1, 10))
-        username_target = "u" + str(random.randint(12, 20))
+        id_source = random.randint(1, int(args["<count1>"]))
+        id_target = random.randint(1, int(args["<count2>"]))
+        username_source = args["<prefix1>"] + str(id_source)
+        username_target = args["<prefix2>"] + str(id_target)
         robot_rating(token, username_source, username_target)
 
+def info():
+    print "TODO: Not NotImplementedError"
+
+def friends():
+    print "TODO: Not NotImplementedError"
+
+def server_info():
+    print "TODO: Not NotImplementedError"
 
 def main():
     """
-    Test Only.
+    Parse arguments and call.
     """
-    # init_server()
-    # gen_users()
 
-    # All RPC functions, except for sign_in(), needs token to access.
-    # here using u10 as demo operator account.
-    token = sign_in("u10", "10")
-
-    # gen_games(token)
-
-    # Draw the graph with matplotlab
-    draw_robot_graph(token)
+    if args["info"]:
+        info()
+    elif args["friends"]:
+        friends()
+    elif args["draw-graph"]:
+        draw_graph()
+    elif args["admin-init"]:
+        admin_init()
+    elif args["server-info"]:
+        server_info()
+    elif args["gen-users"]:
+        gen_users()
+    elif args["gen-games"]:
+        gen_games()
+    else:
+        print "TODO: Not NotImplementedError"
+        print "Arguments:"
+        print args
 
 
 if __name__ == '__main__':

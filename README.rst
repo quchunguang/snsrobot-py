@@ -35,7 +35,7 @@ snsrobot
 
     sudo apt-get install python-dev python-pip nginx mongodb # dependence
     sudo pip install web.py networkx requests pymongo ujson  # dependence
-    sudo pip install matplotlib                              # optional
+    sudo pip install docopt matplotlib                       # dependence
     mongo          # run client of mongodb and insert one initialize data
     > use snsrobot
     > db.counters.insert({"_id": "userid", "seq": 0})
@@ -251,6 +251,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 开发日志
 ----
 
+- 2015-11-17 client side, add support of command line arguments
 - 2015-11-13 browser side, /signin, /signout, /signup. changed api interface.
 - 2015-11-09 client side, automatic generate data for simulate.
 - 2015-11-08 / - browser side, initialize homepage template 'overview'.
@@ -296,6 +297,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 #. `D3 Gallery <https://github.com/mbostock/d3/wiki/Gallery>`_
 #. `CDN speed up <http://www.bootcdn.cn/>`_
 #. `FIGlet Server <http://www.asciiset.com/figletserver.html>`_
+#. `remark for create presentation sliders write in markdown <https://github.com/gnab/remark/wiki/Markdown>`_
 
 Licenses
 --------
