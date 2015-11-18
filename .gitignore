@@ -59,3 +59,7 @@ target/
 # Temporary generated data folder
 .idea/
 sessions/
+.ropeproject/
+static/tmp/forcedirected.json
+static/tmp/test.graphml
+
