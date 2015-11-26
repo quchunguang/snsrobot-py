@@ -1,18 +1,18 @@
 #!/usr/bin/env python2
 # -*- encoding=utf8 -*-
-"""snsrebot - CLI interface simulates the robot client.
+"""snsrobot - CLI interface simulates the robot client.
 This should be run on each robot as a SNS client.
 
 Usage:
-  snsrebot.py (-h | --help)
-  snsrebot.py --version
-  snsrebot.py -u <username> -p <password> info
-  snsrebot.py -u <username> -p <password> friends
-  snsrebot.py -u <username> -p <password> draw-graph
-  snsrebot.py -s <secret> admin-init
-  snsrebot.py server-info [--users-top100 | --games-top100]
-  snsrebot.py gen-users <prefix> <count> <group> <password>
-  snsrebot.py -u <username> -p <password> gen-games <prefix1> <count1> <prefix2> <count2> <gamecount>
+  snsrobot.py (-h | --help)
+  snsrobot.py --version
+  snsrobot.py -u <username> -p <password> info
+  snsrobot.py -u <username> -p <password> friends
+  snsrobot.py -u <username> -p <password> draw-graph
+  snsrobot.py -s <secret> admin-init
+  snsrobot.py server-info [--users-top100 | --games-top100]
+  snsrobot.py gen-users <prefix> <count> <group> <password>
+  snsrobot.py -u <username> -p <password> gen-games <prefix1> <count1> <prefix2> <count2> <gamecount>
 
 Options:
   -h --help        Show this screen.
@@ -22,7 +22,7 @@ Options:
   -s <secret>      Super secret token for administrator
 
 Example:
-    snsrebot.py -s '5fa09e02-8525-11e5-bad8-60672041b848' admin-info
+    snsrobot.py -s '5fa09e02-8525-11e5-bad8-60672041b848' admin-init
 """
 from docopt import docopt
 from networkx.algorithms import approximation as approx
