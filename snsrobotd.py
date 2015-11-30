@@ -228,12 +228,10 @@ class ForceDirected:
 
         obj = {
             "nodes": [{"name": user["username"],
-                       "group": user["group"]} for user in users.find().sort("_id", pymongo.ASCENDING)
-                      ],
+                       "group": user["group"]} for user in users.find().sort("_id", pymongo.ASCENDING)],
             "links": [{"source": edge["source"] - 1,
                        "target": edge["target"] - 1,
-                       "weight": edge["weight"]} for edge in edges.find()
-                      ],
+                       "weight": edge["weight"]} for edge in edges.find()],
         }
 
         local = os.getenv('PWD')
