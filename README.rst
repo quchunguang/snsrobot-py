@@ -299,6 +299,7 @@ MUST PEP8 CHECK BEFORE COMMIT !!!
 #. `CDN speed up <http://www.bootcdn.cn/>`_
 #. `FIGlet Server <http://www.asciiset.com/figletserver.html>`_
 #. `remark for create presentation sliders write in markdown <https://github.com/gnab/remark/wiki/Markdown>`_
+#. `python dict to xml <https://github.com/quandyfactory/dicttoxml>`_
 
 Licenses
 --------
